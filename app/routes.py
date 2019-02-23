@@ -5,5 +5,5 @@ from app import app
 @app.route('/')
 @app.route('/index')
 def index():
-    user = {'username': 'Zoop'}
+    user = {'username': 'Zerm'}
     return render_template('index.html', title='Home', user=user)
