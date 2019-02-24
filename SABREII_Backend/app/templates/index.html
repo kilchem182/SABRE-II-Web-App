@@ -1,8 +1,8 @@
-<html>
-    <head>
-        <title>{{ title }} - SABREII</title>
-    </head>
-    <body>
-        <h1>Hello, {{ user.username }}!</h1>
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome To SABREII</h1>
+    {% for post in posts %}
+    <div><p>{{ post.trackName }}</b></p></div>
+    {% endfor %}
+{% endblock %}
