@@ -10,9 +10,10 @@ from app.lib import getSongInfo, JSONToDict, dictToJSON, addSongToArray, Priorit
 def index(): #python portion for main index page. Initializes databse and applys that as defaut jukebox
     if getID() == None:
         initDatabase()
-    songlist = JSONToDict(getID())
-    songlist['jukeBox'][0]['vote'] = 1000000
-    return render_template('index.html', title='Home', songs=songlist['jukeBox'])
+    songList = JSONToDict(getID())
+    songList['jukeBox'][0]['vote'] = 1000000
+    dictToJSON(getID(), songList)
+    return render_template('index.html', title='Home', songs=songList['jukeBox'])
 
 @app.route('/addSongToQ', methods=['GET', 'POST'])
 def addSongToQ(): #python portion for ading a song to the jukebox
