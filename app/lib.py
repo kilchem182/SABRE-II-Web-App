@@ -6,15 +6,11 @@ def dictToJSON(dict): #json.dumps() puts dict in to json, json.loads() puts json
     with open('room', 'w') as file:
         json.dump(dict, file)
 
-def JSONToDict():
+def JSONToDict():#converts JSON style data to a dictionary
     with open('room') as file:
         jsonString = file.read()
         jsonInfo = json.loads(jsonString)
         return jsonInfo
-
-def inJSON():
-    length = len(jsonInfo)
-    jsonInfo[length] = input #length
 
 def addSongToArray(songList, newSong):
     songList.append(newSong)
