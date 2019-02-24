@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect
 from app import app
 from app.forms import LoginForm, SongForm
-#from app.lib import JSONToDict
+from app.lib import getSongInfo
 #import json
 
 
@@ -22,7 +22,7 @@ def index():
             'artworkUrl100' : url,
             'votes': numVotes
         }]
-    return render_template('index.html', title='Home', posts=songlist)
+    return render_template('index.html', title='Home', songs=songlist)
 
 @app.route('/login')
 def login():
@@ -35,5 +35,11 @@ def addSongToQ():
     if form.validate_on_submit():
         flash('Song is {}, Artist is {}'.format(
             form.song.data, form.artist.data))
+        #newSong = getSongInfo(form.song.data, form.artist.data)
+        #flash('trackId: {}, trackName: {}, artistName: {}, collectionName: {}, artworkUrl100: {}, votes: {}'.format(
+            #newSong['trackId'], newSong['trackName'], newSong['artistName'], newSong['collectionName'], newSong['artworkUrl100']))
         return redirect("/index")
     return render_template('addSongToQ.html', title='Enter A Song', form=form)
+
+#@app.route('/updateRemoteJukebox')
+#def updateRemoteJukebox():
