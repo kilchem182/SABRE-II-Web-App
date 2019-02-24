@@ -56,7 +56,7 @@ def updateRemoteJukebox():
 
     return None
 
-@app.route('/upvote', methods=['GET', 'POST'])
-def upvote():
-
-    return None
+# @app.route('/upvote', methods=['GET', 'POST'])
+# def upvote():
+#
+#     return None
