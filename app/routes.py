@@ -22,8 +22,8 @@ def addSongToQ(): #python portion for ading a song to the jukebox
         songList = JSONToDict(getID())
         newSong = getSongInfo(form.song.data, form.artist.data)
         if newSong == -1:
-            flash('Song could not be found')
-            return redirect("/index")
+            flash('ERROR: Song could not be found - Try Again')
+            return redirect("/addSongToQ")
         songList = addSongToArray(songList, newSong)
         songList = PrioritizeList(songList)
         dictToJSON(getID(), songList)
