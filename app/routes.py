@@ -35,6 +35,7 @@ def updateRemoteJukebox(): #updates jukebox, triggered when user adds or upvotes
     if request.method == 'POST':
         if getID() == None:
             initDatabase()
+        songList = JSONToDict(getID())
         if request.get_json() != {"jukeBox" : []}:
             newSong = request.get_json()
             for song in newSong["jukeBox"]:
