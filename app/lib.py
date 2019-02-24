@@ -6,7 +6,7 @@ def initDatabase(): #function to initialize jukebox
     client = pymongo.MongoClient("mongodb+srv://kilchem182:sabreiitcnj123@sabreii-database-b6sjy.mongodb.net/test?retryWrites=true")
     db = client["database"]
     col = db["jukeBoxCollection"]
-    post = {"jukeBox": [{"trackId": 604814341, "artistName": "Daler Mehndi" , "collectionName": "Tunak Tunak Tun", "trackName": "Tunak Tunak Tun", "artworkUrl100": "https://is4-ssl.mzstatic.com/image/thumb/Music/v4/d5/44/17/d54417af-f664-785a-f5cc-48875cdeb843/source/100x100bb.jpg", "vote": 0}]}
+    post = {"jukeBox": [{'trackId': 1447204033, 'artistName': 'Post Malone', 'collectionName': 'Wow. - Single', 'trackName': 'Wow.', 'artworkUrl100': 'https://sslf.ulximg.com/image/750x750/cover/1545658385_74cd02ec069437ca2a3fb51f925f6e78.jpg/b1fed0c589ec82e8a24df614fa9722db/1545658385_c3e958afdca1255cba092573c9f173da.jpg', 'vote': 0}]}
     _id = col.insert_one(post)
     return
 
