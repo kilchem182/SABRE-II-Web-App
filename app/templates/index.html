@@ -13,28 +13,26 @@
                 <h5>on: {{songs[0]['collectionName']}}</h5>
               </div>
           </div>
-
-          {% for song in songs %}
-          <div class = "row text-center id=row1">
-              <div class = "col-sm-12">
-                    <div class = "row">
-                      <div class="col-sm-4">
-                        <img src={{song.artworkUrl100}} style style="width:256px;height:256px;">
+          {% for song in songs[1:] %}
+            <div class = "row text-center id=row1">
+                <div class = "col-sm-12">
+                      <div class = "row">
+                        <div class="col-sm-4">
+                          <img src={{song.artworkUrl100}} style style="width:256px;height:256px;">
+                        </div>
+                        <div class="col-sm-4">
+                          <h5>{{song.trackName}}</h5>
+                          <h5>{{song.artistName}}</h5>
+                          <h5>{{song.collectionName}}</h5>
+                        </div>
+                        <div class="col-sm-4">
+                          Plus sign goes here
+                        </div>
                       </div>
-                      <div class="col-sm-4">
-                        <h5>{{song.trackName}}</h5>
-                        <h5>{{song.artistName}}</h5>
-                        <h5>{{song.collectionName}}</h5>
-                      </div>
-                      <div class="col-sm-4">
-                        Plus sign goes here
-                      </div>
-                    </div>
-              </div>
-          </div>
+                </div>
+            </div>
           {% endfor %}
         </div>
         </div>
-
 
 {% endblock %}
