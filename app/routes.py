@@ -11,7 +11,7 @@ def index(): #python portion for main index page. Initializes databse and applys
     if getID() == None:
         initDatabase()
     songlist = JSONToDict(getID())
-
+    songlist['jukeBox'][0]['vote'] = 1
     return render_template('index.html', title='Home', songs=songlist['jukeBox'])
 
 @app.route('/addSongToQ', methods=['GET', 'POST'])
