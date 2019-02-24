@@ -6,7 +6,7 @@ def initDatabase():
     client = pymongo.MongoClient("mongodb+srv://kilchem182:sabreiitcnj123@sabreii-database-b6sjy.mongodb.net/test?retryWrites=true")
     db = client["database"]
     col = db["jukeBoxCollection"]
-    post = {"jukeBox": [{"trackId": 290884853, "artistName": "X JAPAN", "collectionName": "Blue Blood", "trackName": "X", "artworkUrl100": "https://is4-ssl.mzstatic.com/image/thumb/Music/v4/a7/5c/81/a75c818e-9f2b-0571-63f0-ec7a3fa7aa86/source/100x100bb.jpg", "vote": 0}]}
+    post = {"jukeBox": [{"trackId": 604814341, "artistName": "Daler Mehndi" , "collectionName": "Tunak Tunak Tun", "trackName": "Tunak Tunak Tun", "artworkUrl100": "https://is4-ssl.mzstatic.com/image/thumb/Music/v4/d5/44/17/d54417af-f664-785a-f5cc-48875cdeb843/source/100x100bb.jpg", "vote": 0}]}
     _id = col.insert_one(post)
     return
 
