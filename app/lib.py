@@ -2,7 +2,7 @@ import json
 import requests
 import pymongo
 
-def initDatabase():
+def initDatabase(): #function to initialize jukebox
     client = pymongo.MongoClient("mongodb+srv://kilchem182:sabreiitcnj123@sabreii-database-b6sjy.mongodb.net/test?retryWrites=true")
     db = client["database"]
     col = db["jukeBoxCollection"]
@@ -10,14 +10,14 @@ def initDatabase():
     _id = col.insert_one(post)
     return
 
-def getID():
+def getID(): #function that returns jukebox ID
     client = pymongo.MongoClient("mongodb+srv://kilchem182:sabreiitcnj123@sabreii-database-b6sjy.mongodb.net/test?retryWrites=true")
     db = client["database"]
     cursor = db.jukeBoxCollection
     for doc in cursor.find():
         return(doc['_id'])
 
-def dictToJSON(id, dict): #json.dumps() puts dict in to json, json.loads() puts json in to dict
+def dictToJSON(id, dict): #converts jukebox formated dictionary to JSON format
     client = pymongo.MongoClient("mongodb+srv://kilchem182:sabreiitcnj123@sabreii-database-b6sjy.mongodb.net/test?retryWrites=true")
     db = client["database"]
     col = db["jukeBoxCollection"]
@@ -25,7 +25,7 @@ def dictToJSON(id, dict): #json.dumps() puts dict in to json, json.loads() puts 
     col.update_one({'_id': id}, newVals)
     return
 
-def JSONToDict(id):#converts JSON style data to a dictionary
+def JSONToDict(id):#converts JSON style data to a jukebox formatted dictionary
     client = pymongo.MongoClient("mongodb+srv://kilchem182:sabreiitcnj123@sabreii-database-b6sjy.mongodb.net/test?retryWrites=true")
     db = client["database"]
     col = db["jukeBoxCollection"]
@@ -34,13 +34,13 @@ def JSONToDict(id):#converts JSON style data to a dictionary
     for obj in result:
         return {"jukeBox" : obj["jukeBox"]}
 
-def addSongToArray(songList, newSong):
+def addSongToArray(songList, newSong): #adds song to a jukebox queue
     jukeBox = songList["jukeBox"]
     jukeBox.append(newSong)
     songList["jukeBox"] = jukeBox
     return songList
 
-def getSongInfo(song, artist):
+def getSongInfo(song, artist): #returns song info from apple API
     #wanted keys: trackId, artistName, albumName, songName, albumArt30,60,100, vote
     keys  = ['trackId', 'artistName', 'collectionName', 'trackName', 'artworkUrl100']
     song = song.replace(" ", "+")

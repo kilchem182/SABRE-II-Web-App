@@ -7,30 +7,15 @@ from app.lib import getSongInfo, JSONToDict, dictToJSON, addSongToArray, Priorit
 
 @app.route('/')
 @app.route('/index')
-def index():
-    ID = 604814341
-    track = 'Tunak Tunak Tun'
-    artist = 'Daler Mehndi'
-    album = 'Tunak Tunak Tun'
-    url =  'https://is4-ssl.mzstatic.com/image/thumb/Music/v4/d5/44/17/d54417af-f664-785a-f5cc-48875cdeb843/source/100x100bb.jpg'
-    numVotes = 0
+def index(): #python portion for main index page. Initializes databse and applys that as defaut jukebox
     if getID() == None:
         initDatabase()
-    # songlist = [{
-    #         'trackId': ID,
-    #         'trackName': track,
-    #         'artistName': artist,
-    #         'collectionName': album,
-    #         'artworkUrl100' : url,
-    #         'vote': numVotes
-    #     }]
-
     songlist = JSONToDict(getID())
 
     return render_template('index.html', title='Home', songs=songlist['jukeBox'])
 
 @app.route('/addSongToQ', methods=['GET', 'POST'])
-def addSongToQ():
+def addSongToQ(): #python portion for ading a song to the jukebox
     form = SongForm()
     if form.validate_on_submit():
         songList = JSONToDict(getID())
@@ -45,7 +30,7 @@ def addSongToQ():
     return render_template('addSongToQ.html', title='Enter A Song', form=form)
 
 @app.route('/updateRemoteJukeBox', methods=['GET', 'POST'])
-def updateRemoteJukebox():
+def updateRemoteJukebox(): #updates jukebox, triggered when user adds or upvotes songs
     if request.method == 'POST':
         if getID() == None:
             initDatabase()
@@ -59,7 +44,7 @@ def updateRemoteJukebox():
     return None
 
 @app.route('/upvote', methods=['GET', 'POST'])
-def upvote():
+def upvote(): #updates values based on user inputeed upvote
     trackID = request.args["trackId"]
     songList = JSONToDict(getID())
     for song in songList['jukeBox']:
