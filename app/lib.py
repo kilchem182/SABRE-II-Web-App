@@ -3,7 +3,7 @@ import requests
 import pymongo
 
 def initDatabase():
-    client = pymongo.MongoClient("mongodb://heroku_n7kdzn44:f2he7ovbbjm9fiffgu6fn23tfs@ds349455.mlab.com:49455/heroku_n7kdzn44")
+    client = pymongo.MongoClient("mongodb+srv://kilchem182:sabreiitcnj123@sabreii-database-b6sjy.mongodb.net/test?retryWrites=true")
     db = client["database"]
     col = db["jukeBoxCollection"]
     post = {"jukeBox": [{"trackId": 290884853, "artistName": "X JAPAN", "collectionName": "Blue Blood", "trackName": "X", "artworkUrl100": "https://is4-ssl.mzstatic.com/image/thumb/Music/v4/a7/5c/81/a75c818e-9f2b-0571-63f0-ec7a3fa7aa86/source/100x100bb.jpg", "vote": 0}]}
@@ -11,14 +11,14 @@ def initDatabase():
     return
 
 def getID():
-    client = pymongo.MongoClient("mongodb://heroku_n7kdzn44:f2he7ovbbjm9fiffgu6fn23tfs@ds349455.mlab.com:49455/heroku_n7kdzn44")
+    client = pymongo.MongoClient("mongodb+srv://kilchem182:sabreiitcnj123@sabreii-database-b6sjy.mongodb.net/test?retryWrites=true")
     db = client["database"]
     cursor = db.jukeBoxCollection
     for doc in cursor.find():
         return(doc['_id'])
 
 def dictToJSON(id, dict): #json.dumps() puts dict in to json, json.loads() puts json in to dict
-    client = pymongo.MongoClient("mongodb://heroku_n7kdzn44:f2he7ovbbjm9fiffgu6fn23tfs@ds349455.mlab.com:49455/heroku_n7kdzn44")
+    client = pymongo.MongoClient("mongodb+srv://kilchem182:sabreiitcnj123@sabreii-database-b6sjy.mongodb.net/test?retryWrites=true")
     db = client["database"]
     col = db["jukeBoxCollection"]
     newVals = {"$set" : dict}
@@ -26,7 +26,7 @@ def dictToJSON(id, dict): #json.dumps() puts dict in to json, json.loads() puts 
     return
 
 def JSONToDict(id):#converts JSON style data to a dictionary
-    client = pymongo.MongoClient("mongodb://heroku_n7kdzn44:f2he7ovbbjm9fiffgu6fn23tfs@ds349455.mlab.com:49455/heroku_n7kdzn44")
+    client = pymongo.MongoClient("mongodb+srv://kilchem182:sabreiitcnj123@sabreii-database-b6sjy.mongodb.net/test?retryWrites=true")
     db = client["database"]
     col = db["jukeBoxCollection"]
     query = {'_id': id}
