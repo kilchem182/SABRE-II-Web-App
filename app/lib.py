@@ -70,29 +70,8 @@ def inSongList(songsList, trackIdNum): #function to tell if a song is already in
             continue
     return result
 
-def PrioritizeList(songList):
+def PrioritizeList(songList): #function to reorder based on votes
     jukeBox = songList["jukeBox"]
     orderedJukeBox = sorted(jukeBox, key=lambda k : k['vote'], reverse = True)
     songList["jukeBox"] = orderedJukeBox
     return songList
-
-'''
-initDatabase()
-id = getID()
-print(id)
-songList = JSONToDict(id)
-print(songList)
-songList = addSongToArray(songList, {"Test" : 1})
-print(songList)
-dictToJSON(id, songList)
-songList = JSONToDict(id)
-print(songList)
-songList = addSongToArray(songList, {"Test2" : 2})
-print(songList)
-dictToJSON(id, songList)
-songList = JSONToDict(id)
-print(songList)
-songList = addSongToArray(songList, {"Test3" : 3})
-print(songList)
-dictToJSON(id, songList)
-'''
