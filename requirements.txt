@@ -14,4 +14,6 @@ requests==2.18.4
 urllib3==1.22
 Werkzeug==0.14.1
 WTForms==2.2.1
+Flask-PyMongo==2.2.0
+PyMongo==3.7.2
 
