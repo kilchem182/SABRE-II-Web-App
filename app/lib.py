@@ -19,7 +19,7 @@ def addSongToArray(songList, newSong):
 
 def getSongInfo(song, artist):
     #wanted keys: trackId, artistName, albumName, songName, albumArt30,60,100, vote
-    keys  = ['trackId', 'artistName', 'collectionName', 'trackName', 'artworkUrl30', 'artworkUrl60', 'artworkUrl100']
+    keys  = ['trackId', 'artistName', 'collectionName', 'trackName', 'artworkUrl100']
     song = song.replace(" ", "+")
     artist = artist.replace(" ", "+")
 

@@ -31,7 +31,11 @@ def index():
 def addSongToQ():
     form = SongForm()
     if form.validate_on_submit():
+        songList = JSONToDict('test.json')
         newSong = getSongInfo(form.song.data, form.artist.data)
+        songList = addSongToArray(songList, newSong)
+        songList = PrioritizeList(songList)
+        dictToJSON('test.json', songList)
         flash('trackId: {}, trackName: {}, artistName: {}, collectionName: {}, artworkUrl100: {}, votes: {}'.format(
             newSong['trackId'], newSong['trackName'], newSong['artistName'], newSong['collectionName'], newSong['artworkUrl100'], newSong['vote']))
         return redirect("/index")
