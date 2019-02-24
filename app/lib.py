@@ -36,6 +36,8 @@ def JSONToDict(id):#converts JSON style data to a jukebox formatted dictionary
 
 def addSongToArray(songList, newSong): #adds song to a jukebox queue
     jukeBox = songList["jukeBox"]
+    if(inSongList(jukeBox, newSong['trackId'])):
+        return songList
     jukeBox.append(newSong)
     songList["jukeBox"] = jukeBox
     return songList
