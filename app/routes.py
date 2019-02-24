@@ -11,7 +11,7 @@ def index(): #python portion for main index page. Initializes databse and applys
     if getID() == None:
         initDatabase()
     songList = JSONToDict(getID())
-    songList['jukeBox'][0]['vote'] = 1000000
+    songList['jukeBox'][0]['vote'] = 10
     dictToJSON(getID(), songList)
     return render_template('index.html', title='Home', songs=songList['jukeBox'])
 
