@@ -6,13 +6,33 @@
           <div class = "row text-center">
               <div class = "col-md-12">
                 <h1>Welcome To SABREII</h1>
+                <h1>Current Song:</h1>
                 {% for song in songs %}
                 <div><p>{{ song.trackName }}</b></p></div>
                 {% endfor %}
               </div>
           </div>
 
-          <div class = "row text-center">
+          <div class = "row text-center id=row1">
+              <div class = "col-sm-12">
+                <!-- <ul>
+                  <li> -->
+                    <div class = "row">
+                      <div class="col-sm-4">
+                        One of 12 columns
+                      </div>
+                      <div class="col-sm-4">
+                        One of 12 columns
+                      </div>
+                      <div class="col-sm-4">
+                        One of 12 columns
+                      </div>
+                    </div>
+                  <!-- </li>
+                </ul> -->
+              </div>
+          </div>
+          <div class = "row text-center id=row2">
               <div class = "col-sm-12">
                 <!-- <ul>
                   <li> -->
@@ -32,5 +52,7 @@
               </div>
           </div>
         </div>
+        </div>
+
 
 {% endblock %}
