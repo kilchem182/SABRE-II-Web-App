@@ -6,51 +6,33 @@
           <div class = "row text-center">
               <div class = "col-md-12">
                 <h1>Welcome To SABREII</h1>
-                <h1>Current Song:</h1>
-                {% for song in songs %}
-                <div><p>{{ song.trackName }}</b></p></div>
-                {% endfor %}
+                <h3>Now Playing:</h3>
+                <h1><img src={{songs[0]['artworkUrl100']}} style="width:256px;height:256px;"></h1>
+                <h4>{{songs[0]['trackName']}}</h4>
+                <h5>by: {{songs[0]['artistName']}}</h5>
+                <h5>on: {{songs[0]['collectionName']}}</h5>
               </div>
           </div>
 
+          {% for song in songs %}
           <div class = "row text-center id=row1">
               <div class = "col-sm-12">
-                <!-- <ul>
-                  <li> -->
                     <div class = "row">
                       <div class="col-sm-4">
-                        One of 12 columns
+                        <img src={{song.artworkUrl100}} style style="width:256px;height:256px;">
                       </div>
                       <div class="col-sm-4">
-                        One of 12 columns
+                        <h5>{{song.trackName}}</h5>
+                        <h5>{{song.artistName}}</h5>
+                        <h5>{{song.collectionName}}</h5>
                       </div>
                       <div class="col-sm-4">
-                        One of 12 columns
+                        Plus sign goes here
                       </div>
                     </div>
-                  <!-- </li>
-                </ul> -->
               </div>
           </div>
-          <div class = "row text-center id=row2">
-              <div class = "col-sm-12">
-                <!-- <ul>
-                  <li> -->
-                    <div class = "row">
-                      <div class="col-sm-4">
-                        One of 12 columns
-                      </div>
-                      <div class="col-sm-4">
-                        One of 12 columns
-                      </div>
-                      <div class="col-sm-4">
-                        One of 12 columns
-                      </div>
-                    </div>
-                  <!-- </li>
-                </ul> -->
-              </div>
-          </div>
+          {% endfor %}
         </div>
         </div>
 

@@ -14,15 +14,18 @@ def index():
     album = 'Tunak Tunak Tun'
     url =  'https://is4-ssl.mzstatic.com/image/thumb/Music/v4/d5/44/17/d54417af-f664-785a-f5cc-48875cdeb843/source/100x100bb.jpg'
     numVotes = 0
-    songlist = [{
-            'trackId': ID,
-            'trackName': track,
-            'artistName': artist,
-            'collectionName': album,
-            'artworkUrl100' : url,
-            'vote': numVotes
-        }]
-    return render_template('index.html', title='Home', songs=songlist)
+    # songlist = [{
+    #         'trackId': ID,
+    #         'trackName': track,
+    #         'artistName': artist,
+    #         'collectionName': album,
+    #         'artworkUrl100' : url,
+    #         'vote': numVotes
+    #     }]
+
+    songlist = JSONToDict('test.json')
+
+    return render_template('index.html', title='Home', songs=songlist['jukeBox'])
 
 @app.route('/addSongToQ', methods=['GET', 'POST'])
 def addSongToQ():
