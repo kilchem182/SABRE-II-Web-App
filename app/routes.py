@@ -39,8 +39,6 @@ def addSongToQ():
         songList = addSongToArray(songList, newSong)
         songList = PrioritizeList(songList)
         dictToJSON('test.json', songList)
-        flash('trackId: {}, trackName: {}, artistName: {}, collectionName: {}, artworkUrl100: {}, votes: {}'.format(
-            newSong['trackId'], newSong['trackName'], newSong['artistName'], newSong['collectionName'], newSong['artworkUrl100'], newSong['vote']))
         return redirect("/index")
     return render_template('addSongToQ.html', title='Enter A Song', form=form)
 
