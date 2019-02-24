@@ -1,8 +1,36 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Welcome To SABREII</h1>
-    {% for song in songs %}
-    <div><p>{{ song.trackName }}</b></p></div>
-    {% endfor %}
+        <div class="container">
+
+          <div class = "row text-center">
+              <div class = "col-md-12">
+                <h1>Welcome To SABREII</h1>
+                {% for song in songs %}
+                <div><p>{{ song.trackName }}</b></p></div>
+                {% endfor %}
+              </div>
+          </div>
+
+          <div class = "row text-center">
+              <div class = "col-sm-12">
+                <!-- <ul>
+                  <li> -->
+                    <div class = "row">
+                      <div class="col-sm-4">
+                        One of 12 columns
+                      </div>
+                      <div class="col-sm-4">
+                        One of 12 columns
+                      </div>
+                      <div class="col-sm-4">
+                        One of 12 columns
+                      </div>
+                    </div>
+                  <!-- </li>
+                </ul> -->
+              </div>
+          </div>
+        </div>
+
 {% endblock %}
