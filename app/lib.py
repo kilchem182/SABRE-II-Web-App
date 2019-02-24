@@ -1,19 +1,20 @@
 import json
 import requests
-import json
 
-def dictToJSON(dict): #json.dumps() puts dict in to json, json.loads() puts json in to dict
-    with open('room', 'w') as file:
+def dictToJSON(file, dict): #json.dumps() puts dict in to json, json.loads() puts json in to dict
+    with open(file, 'w') as file:
         json.dump(dict, file)
 
-def JSONToDict():#converts JSON style data to a dictionary
-    with open('room') as file:
+def JSONToDict(file):#converts JSON style data to a dictionary
+    with open(file) as file:
         jsonString = file.read()
         jsonInfo = json.loads(jsonString)
         return jsonInfo
 
 def addSongToArray(songList, newSong):
-    songList.append(newSong)
+    jukeBox = songList["jukeBox"]
+    jukeBox.append(newSong)
+    songList["jukeBox"] = jukeBox
     return songList
 
 def getSongInfo(song, artist):
@@ -46,8 +47,10 @@ def inSongList(songsList, trackIdNum): #function to tell if a song is already in
     return result
 
 def PrioritizeList(songList):
-    return songList.sort(key=lambda k : k['votes'], reverse = True)
-
+    jukeBox = songList["jukeBox"]
+    orderedJukeBox = sorted(jukeBox, key=lambda k : k['vote'], reverse = True)
+    songList["jukeBox"] = orderedJukeBox
+    return songList
 
 '''
 songList = [{'Test1': 1, 'Test2': 2}]
