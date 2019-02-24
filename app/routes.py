@@ -23,7 +23,7 @@ def index():
     #         'vote': numVotes
     #     }]
 
-    songlist = JSONToDict('test.json')
+    songlist = JSONToDict('test.json') #MAKE THIS ACCESS THE DATABASE
 
     return render_template('index.html', title='Home', songs=songlist['jukeBox'])
 
