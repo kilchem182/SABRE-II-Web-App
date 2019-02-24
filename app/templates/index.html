@@ -17,18 +17,18 @@
           </div>
           {% if not songs[1] == 0 %}
               {% for song in songs[1:] %}
-                <div class = "row text-center">
+                <div class = "row text-center" style="margin-bottom:10px;">
                     <div class = "col-sm-12">
                           <div class = "row">
                             <div class="col-sm-4">
                               <img src={{song.artworkUrl100}} style style="width:256px;height:256px;">
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-4" style="align-self:center;">
                               <h5>{{song.trackName}} - {{song.artistName}} - {{song.collectionName}}</h5>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-4" style="align-self:center;">
                                 <div class =  "row-text-center">
-                                    <a href={{ url_for('upvote') + "?trackId=" + song.trackId|string }}><img src="https://pngimage.net/wp-content/uploads/2018/06/white-plus-sign-png.png" style="width:50px;height:50px"></a>
+                                    <a href={{ url_for('upvote') + "?trackId=" + song.trackId|string }}><img src="https://pngimage.net/wp-content/uploads/2018/06/white-plus-sign-png.png" style="width:30px;height:30px"></a>
                                 </div>
                                 <div class = "row-text-center">
                                     <h7>{{song.vote}} </h7>
