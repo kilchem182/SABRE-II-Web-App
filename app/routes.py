@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, request
+from flask import render_template, flash, redirect, request, url_for
 from app import app
 import json
 from app.forms import SongForm
@@ -50,10 +50,24 @@ def updateRemoteJukebox():
         if getID() == None:
             initDatabase()
         songList = JSONToDict(getID())
-        if request.get_json() != {}:
+        if request.get_json() != {"jukeBox" : []}:
             newSong = request.get_json()
             songList = addSongToArray(songList, newSong)
             songList = PrioritizeList(songList)
             dictToJSON(getID(), songList)
         return json.dumps(songList)
     return None
+
+@app.route('/upvote', methods=['GET', 'POST'])
+def upvote():
+    trackID = request.args["trackId"]
+    songList = JSONToDict(getID())
+    for song in songList['jukeBox']:
+        if(str(song["trackId"]) == trackID):
+            song["vote"] = song["vote"] + 1
+
+    songList = PrioritizeList(songList)
+    updatedVotes = songList
+    updatedVotes = dictToJSON(getID(), updatedVotes)
+
+    return redirect(url_for("index"))

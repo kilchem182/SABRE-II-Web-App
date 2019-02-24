@@ -28,9 +28,7 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class =  "row-text-center">
-                                    <!-- <button><a class="btn btn-primary bouton-image monBouton">Éditer </a></button> -->
-                                    <a href=""><img src="https://pngimage.net/wp-content/uploads/2018/06/white-plus-sign-png.png" style="width:50px;height:50px"></a>
-                                    <!-- <img><a> src=https://pngimage.net/wp-content/uploads/2018/06/white-plus-sign-png.png style="width:50px;height:50px;"</a>/img> -->
+                                    <a href={{ url_for('upvote') + "?trackId=" + song.trackId|string }}><img src="https://pngimage.net/wp-content/uploads/2018/06/white-plus-sign-png.png" style="width:50px;height:50px"></a>
                                 </div>
                                 <div class = "row-text-center">
                                     <h7>{{song.vote}} </h7>
