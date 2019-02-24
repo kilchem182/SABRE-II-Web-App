@@ -33,6 +33,9 @@ def addSongToQ():
     if form.validate_on_submit():
         songList = JSONToDict('test.json')
         newSong = getSongInfo(form.song.data, form.artist.data)
+        if newSong == -1:
+            flash('Song could not be found')
+            return redirect("/index")
         songList = addSongToArray(songList, newSong)
         songList = PrioritizeList(songList)
         dictToJSON('test.json', songList)

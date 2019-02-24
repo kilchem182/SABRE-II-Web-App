@@ -19,15 +19,14 @@ def addSongToArray(songList, newSong):
 
 def getSongInfo(song, artist):
     #wanted keys: trackId, artistName, albumName, songName, albumArt30,60,100, vote
-    keys  = ['trackId', 'artistName', 'collectionName', 'trackName', 'artworkUrl100']
+    keys  = ['trackId', 'artistName', 'collectionName', 'trackName', 'artworkUrl30', 'artworkUrl60', 'artworkUrl100']
     song = song.replace(" ", "+")
     artist = artist.replace(" ", "+")
 
-    check = requests.get('https://itunes.apple.com/search?term={}+{}&limit=1&media=music'.format(song, artist))
-    if not check.ok:
-        return -1
-
     response = requests.get('https://itunes.apple.com/search?term={}+{}&limit=1&media=music'.format(song, artist)).json()
+
+    if response['resultCount'] == 0:
+        return -1
 
     bigDict = response['results'][0]
     lilDict = {key:value for key, value in bigDict.items() if key in keys}
