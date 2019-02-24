@@ -4,7 +4,7 @@
         <div class="container">
           <div class = "row text-center">
               <div class = "col-md-12">
-                <h1>Welcome To SABREII</h1>
+                <h1>Welcome To SABRE II</h1>
                 <h3>Now Playing:</h3>
                 <h1><img src={{songs[0]['artworkUrl100']}} style="width:256px;height:256px;"></h1>
                 <h4>{{songs[0]['trackName']}} - {{songs[0]['artistName']}} - {{songs[0]['collectionName']}}</h4>
@@ -28,7 +28,9 @@
                             </div>
                             <div class="col-sm-4">
                                 <div class =  "row-text-center">
-                                    <img src=https://pngimage.net/wp-content/uploads/2018/06/white-plus-sign-png.png style="width:50px;height:50px;"/img>
+                                    <!-- <button><a class="btn btn-primary bouton-image monBouton">Éditer </a></button> -->
+                                    <a href={{ url_for("upvote") + "?trackId=" + song.trackId }}><img src="https://pngimage.net/wp-content/uploads/2018/06/white-plus-sign-png.png" style="width:50px;height:50px"></a>
+                                    <!-- <img><a> src=https://pngimage.net/wp-content/uploads/2018/06/white-plus-sign-png.png style="width:50px;height:50px;"</a>/img> -->
                                 </div>
                                 <div class = "row-text-center">
                                     <h7>{{song.vote}} </h7>

@@ -55,3 +55,8 @@ def updateRemoteJukebox():
         return json.dumps(songList)
 
     return None
+
+@app.route('/upvote', methods=['GET', 'POST'])
+def upvote():
+
+    return None
