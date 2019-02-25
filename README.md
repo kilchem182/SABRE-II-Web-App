@@ -13,10 +13,10 @@ Visit https://www.sabreii.com in your web browser or download the mobile app ont
 * Python3 - Backend computations and data management
 * Flask - Communication between backend and front end
 * HTML - Frontend management
-* CSS and [Bootstrap](getboostrap.com) - For styling the frontend
+* CSS and [Bootstrap](https://getbootstrap.com) - For styling the frontend
 * Apple Music API - Search for songs to queue
-* [Domain.com](domain.com) - Domain hosting
-* [Heroku](heroku.com) - Hosting the server
+* [Domain.com](https://www.domain.com) - Domain hosting
+* [Heroku](https://www.domain.com) - Hosting the server
 * [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) - Database to keep song queue
 
 
